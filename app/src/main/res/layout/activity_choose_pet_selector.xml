@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chooseScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".ui.ChoosePetSelector.ChoosePetSelectorActivity">
+
+
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/choosescreen2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha seu BitMonster"
+        android:textColor="@color/white"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/name"
+        android:layout_marginBottom="15dp"
+        android:textSize="30dp"
+
+
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:hint="            Name           "
+        app:layout_constraintBottom_toTopOf="@id/BtnLeft"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/white"/>
+
+
+    <ImageView
+        android:id="@+id/BtnLeft"
+        android:src="@drawable/seta_esquerda"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:clickable="true"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+
+
+        />
+
+    <ImageView
+        android:id="@+id/BtnRight"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/seta_direita"
+        android:clickable="true"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+        />
+
+    <ImageView
+        android:id="@+id/btnNext"
+        android:src="@drawable/seta_next"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:clickable="true"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/poring"
+
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/poring"
+
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+        />
+
+    <TextView
+        android:id="@+id/BitPetName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PORING"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintTop_toBottomOf="@id/poring"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/poring"
+        app:layout_constraintRight_toRightOf="@id/poring"
+        />
+
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+
+
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        android:background="@drawable/table_border"
+
+        >
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="30dp"
+                android:src="@drawable/coracao"
+                android:layout_weight="1"
+                android:padding="5dp"
+                />
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:text="VIDA"
+                android:padding="5dp"
+                />
+
+            <TextView
+                android:id="@+id/vida"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:text="100"
+                android:gravity="center"
+
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="30dp"
+                android:src="@drawable/espada"
+                android:layout_weight="1"
+                android:padding="5dp"
+                />
+
+
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:text="ATAQUE"
+                android:padding="5dp"
+
+                />
+
+            <TextView
+                android:id="@+id/ataque"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:text="100"
+                android:padding="5dp"
+                android:gravity="center"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="30dp"
+                android:src="@drawable/escudo"
+                android:layout_weight="1"
+                android:padding="5dp"
+                />
+
+
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:text="DEFESA"
+                android:padding="5dp"
+
+
+                />
+
+            <TextView
+                android:id="@+id/defesa"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:text="100"
+                android:padding="5dp"
+                android:gravity="center"
+
+
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="30dp"
+                android:src="@drawable/agua"
+                android:layout_weight="1"
+                android:padding="5dp"
+                />
+
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:text="SEDE"
+                android:padding="5dp"
+
+                />
+
+            <TextView
+                android:id="@+id/sede"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:text="100"
+                android:gravity="center"
+
+
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="30dp"
+                android:src="@drawable/prato"
+                android:layout_weight="1"
+                android:padding="5dp"
+                />
+
+
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:text="FOME"
+                android:padding="5dp"
+
+                />
+
+            <TextView
+                android:id="@+id/fome"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:text="100"
+                android:gravity="center"
+                />
+
+        </TableRow>
+
+
+
+
+   </TableLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

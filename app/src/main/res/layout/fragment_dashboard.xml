@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dashboard.DashboardFragment"
+    >
+
+
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backgroundbattle2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/platform"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+
+        android:src="@drawable/platforms"
+        />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/tvPetName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="PORING"
+        android:textColor="@color/white"
+
+
+       app:layout_constraintLeft_toLeftOf="@id/PetLifeBar"
+        app:layout_constraintBottom_toTopOf="@id/tvlevel"
+
+        />
+
+
+
+    <TextView
+        android:id="@+id/tvlevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="L: 59"
+        android:textColor="@color/white"
+
+
+        app:layout_constraintRight_toLeftOf="@id/PetLifeBar"
+        app:layout_constraintLeft_toRightOf="@id/PetLifeBar"
+        app:layout_constraintBottom_toTopOf="@id/PetLifeBar"
+
+        />
+
+
+    <ProgressBar
+
+        android:id="@+id/PetLifeBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="150dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="5dp"
+        android:padding="3dp"
+        android:background="@color/white"
+        android:progress="100"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="20dp"
+
+        app:layout_constraintLeft_toRightOf="@id/YourPet"
+        app:layout_constraintBottom_toBottomOf="@id/YourPet"
+        app:layout_constraintHorizontal_bias="1.0"/>
+
+    <TextView
+        android:id="@+id/lifePoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="200"
+        android:textColor="@color/white"
+
+
+        app:layout_constraintRight_toLeftOf="@id/PetLifeBar"
+        app:layout_constraintLeft_toRightOf="@id/PetLifeBar"
+        app:layout_constraintTop_toBottomOf="@id/PetLifeBar"
+
+        />
+    <TextView
+        android:id="@+id/lifePointsMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="/300"
+        android:textColor="@color/white"
+
+
+
+        app:layout_constraintLeft_toRightOf="@id/lifePoints"
+        app:layout_constraintTop_toTopOf="@id/lifePoints"
+        app:layout_constraintBottom_toBottomOf="@id/lifePoints"
+
+        />
+
+  <ImageView
+      android:layout_width="20dp"
+      android:layout_height="20dp"
+      android:layout_marginRight="5dp"
+
+      android:src="@drawable/coracao"
+
+      app:layout_constraintRight_toLeftOf="@id/PetLifeBar"
+
+      app:layout_constraintTop_toBottomOf="@id/PetLifeBar"
+      app:layout_constraintBottom_toTopOf="@id/PetLifeBar"
+
+
+    />
+
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/YourPet"
+        android:clickable="true"
+        android:layout_width="103dp"
+        android:layout_height="98dp"
+        android:src="@drawable/poring4"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7"
+        app:layout_constraintHorizontal_bias="0.2"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/powerAttackVillain"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/attackeffect1"
+        android:visibility="gone"
+
+        android:rotation="140"
+
+
+        app:layout_constraintRight_toRightOf="@id/villain"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+
+        android:background="@drawable/table_border"
+        app:layout_constraintBottom_toTopOf="@id/PetLifeBar"
+        app:layout_constraintRight_toRightOf="@id/PetLifeBar"
+        android:layout_marginBottom="5dp"
+        >
+
+        <ImageView
+            android:id="@+id/equipeditemPet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/villain"
+        android:clickable="true"
+        android:layout_width="103dp"
+        android:layout_height="170dp"
+        android:src="@drawable/succubus"
+
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.85"/>
+
+    <ImageView
+        android:id="@+id/dropItem"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/dropItem2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.35"
+
+        />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/powerAttack"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/attackeffect4"
+        android:visibility="gone"
+
+
+
+        app:layout_constraintBottom_toBottomOf="@id/villain"
+        app:layout_constraintTop_toTopOf="@id/villain"
+        app:layout_constraintLeft_toLeftOf="@id/villain"
+        app:layout_constraintRight_toRightOf="@id/villain"
+
+
+        />
+
+
+    <TextView
+        android:id="@+id/tvPetNamevillain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="SUCCUBUS"
+        android:textColor="@color/white"
+
+
+        app:layout_constraintLeft_toLeftOf="@id/PetLifeBarvillain"
+        app:layout_constraintBottom_toTopOf="@id/tvlevelvillain"
+
+        />
+
+
+
+    <TextView
+        android:id="@+id/tvlevelvillain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="L: 59"
+        android:textColor="@color/white"
+
+
+        app:layout_constraintRight_toLeftOf="@id/PetLifeBarvillain"
+        app:layout_constraintLeft_toRightOf="@id/PetLifeBarvillain"
+        app:layout_constraintBottom_toTopOf="@id/PetLifeBarvillain"
+
+        />
+
+
+    <ProgressBar
+
+        android:id="@+id/PetLifeBarvillain"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="150dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="5dp"
+        android:padding="3dp"
+        android:background="@color/white"
+        android:progress="100"
+        android:layout_marginLeft="30dp"
+
+        app:layout_constraintRight_toLeftOf="@id/villain"
+        app:layout_constraintBottom_toTopOf="@id/villain"
+        app:layout_constraintTop_toTopOf="@id/villain"
+        app:layout_constraintHorizontal_bias="1.0"/>
+
+    <TextView
+        android:id="@+id/lifePointsVillain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="200"
+        android:textColor="@color/white"
+
+
+        app:layout_constraintRight_toLeftOf="@id/PetLifeBarvillain"
+        app:layout_constraintLeft_toRightOf="@id/PetLifeBarvillain"
+        app:layout_constraintTop_toBottomOf="@id/PetLifeBarvillain"
+
+        />
+    <TextView
+        android:id="@+id/maxLifePointsVillain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="200"
+        android:textColor="@color/white"
+
+        app:layout_constraintLeft_toRightOf="@id/lifePointsVillain"
+        app:layout_constraintTop_toBottomOf="@id/PetLifeBarvillain"
+
+        />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="5dp"
+
+        android:src="@drawable/coracao"
+
+        app:layout_constraintRight_toLeftOf="@id/PetLifeBarvillain"
+
+        app:layout_constraintTop_toBottomOf="@id/PetLifeBarvillain"
+        app:layout_constraintBottom_toTopOf="@id/PetLifeBarvillain"
+
+
+        />
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintVertical_bias="0.89"
+        android:background="@drawable/text_box_battle"
+
+        >
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="10"
+
+
+        >
+
+
+        <LinearLayout
+            android:id="@+id/textLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="horizontal"
+            android:background="@drawable/text_box_battle"
+            android:clickable="true"
+            >
+
+            <TextView
+                android:id="@+id/tvAcao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="25dp"
+
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/menu_pet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:orientation="vertical"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:orientation="horizontal">
+
+
+               <Button
+                   android:id="@+id/fight"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:textStyle="bold"
+                   android:text="FIGHT"
+                   android:layout_weight="2"
+                   />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="BITM"
+                    android:layout_weight="2"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/bag"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="BAG"
+                    android:layout_weight="2"
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="RUN!"
+                    android:layout_weight="2"
+                    />
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/menu_attack"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:orientation="vertical"
+            android:visibility="gone"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/attack1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="Cabeçada"
+                    android:layout_weight="2"
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="MORDIDA"
+                    android:layout_weight="2"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="GRITAR"
+                    android:layout_weight="2"
+                    />
+
+                <Button
+                    android:id="@+id/backMenuDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="Back"
+                    android:layout_weight="2"
+                    />
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bagModal"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_border"
+
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="100dp"
+
+        android:orientation="vertical"
+
+        >
+
+
+        <TextView
+            android:id="@+id/fecharModal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:textSize="40dp"
+            android:gravity="right"
+            android:layout_marginRight="10dp"
+            />
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/poring"
+
+            android:layout_marginTop="20dp"
+            />
+
+        <LinearLayout
+
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/PetLifeBar"
+            app:layout_constraintRight_toRightOf="@id/PetLifeBar"
+            app:layout_constraintLeft_toLeftOf="@id/PetLifeBar"
+            android:background="@drawable/table_border"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            >
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:background="@drawable/table_border"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:id="@+id/equipeditem"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:background="@drawable/table_border"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+
+                    />
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rv"
+                android:layout_margin="20dp"
+                />
+
+
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
