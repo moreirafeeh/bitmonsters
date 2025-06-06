@@ -43,7 +43,7 @@ import com.example.bitpets.room.entities.*
 //---------------------------------------------------------------------------------------------------
 
 
-    @Database(entities = [PET::class,USUARIO::class,HABILIDADES::class, HABILIDADES_PET::class, PET_ITENS::class ], version = 11)
+    @Database(entities = [PET::class,USUARIO::class,HABILIDADES::class, HABILIDADES_PET::class, PET_ITENS::class ], version = 12)
     abstract class BitMonstersDataBase : RoomDatabase() {
 
         abstract fun usuarioDAO(): usuarioDAO
@@ -70,15 +70,15 @@ import com.example.bitpets.room.entities.*
 
             }
 
-            private val MIGRATION_1_2: Migration = object : Migration(10, 11){
+            private val MIGRATION_1_2: Migration = object : Migration(11, 12){
                 override fun migrate(database: SupportSQLiteDatabase) {
                     //database.execSQL("INSERT INTO USUARIO(NAME, PASSWORD, TELEFONE, EMAIL, CEP, BAIRRO, RUA, NUMERO, DT_NASCIMENTO, FT_PERFIL) VALUES (\"JOSELITO\", \"BATATA\", \"11965956965\", \"BATATA@HOTMAIL.COM\", \"09930620\", \"CAMPANARIO\", \"RUA DOS MARACUJA \", \"290\", \"28/07/1996\", \"SEM FOTO\");")
                     //database.execSQL("INSERT INTO PET(ID_USER, PET_NAME, TYPE_PET, VIDA, ATAQUE, DEFESA, SEDE, FOME, PET_HOUR) VALUES (1,\"Peteleco\", \"poring\", 100, 100, 100, 100, 100, \"\");")
                     //database.execSQL("ALTER TABLE PET ADD COLUMN PET_HOUR TEXT;")
 
-                    database.execSQL("INSERT INTO HABILIDADES(NOME_HABILIDADE, QTD_HABILIDADE, QTD_MAX_HABILIDADE, DANO_HABILIDADE) VALUES (\"FOGO\", 20, 40, 400);")
-                    database.execSQL("INSERT INTO HABILIDADES(NOME_HABILIDADE, QTD_HABILIDADE, QTD_MAX_HABILIDADE, DANO_HABILIDADE) VALUES (\"GELO\", 20, 30, 200);")
-                    database.execSQL("INSERT INTO HABILIDADES(NOME_HABILIDADE, QTD_HABILIDADE, QTD_MAX_HABILIDADE, DANO_HABILIDADE) VALUES (\"RAIO\", 15, 20, 500);")
+                    //database.execSQL("INSERT INTO HABILIDADES(NOME_HABILIDADE, QTD_HABILIDADE, QTD_MAX_HABILIDADE, DANO_HABILIDADE) VALUES (\"FOGO\", 20, 40, 400);")
+                    //database.execSQL("INSERT INTO HABILIDADES(NOME_HABILIDADE, QTD_HABILIDADE, QTD_MAX_HABILIDADE, DANO_HABILIDADE) VALUES (\"GELO\", 20, 30, 200);")
+                    //database.execSQL("INSERT INTO HABILIDADES(NOME_HABILIDADE, QTD_HABILIDADE, QTD_MAX_HABILIDADE, DANO_HABILIDADE) VALUES (\"RAIO\", 15, 20, 500);")
                 }
 
             }

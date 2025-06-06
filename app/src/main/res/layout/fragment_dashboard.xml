@@ -17,46 +17,15 @@
         android:background="@drawable/backgroundbattle2"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/platform"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
 
         android:src="@drawable/platforms"
-        />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="100dp" />
 
     <TextView
         android:id="@+id/tvPetName"
@@ -79,12 +48,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:text="L: 59"
+        android:text="L: "
         android:textColor="@color/white"
 
 
         app:layout_constraintRight_toLeftOf="@id/PetLifeBar"
         app:layout_constraintLeft_toRightOf="@id/PetLifeBar"
+        app:layout_constraintBottom_toTopOf="@id/PetLifeBar"
+
+        />
+
+    <TextView
+        android:id="@+id/tvlevelNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="2"
+        android:textColor="@color/white"
+
+
+
+        app:layout_constraintLeft_toRightOf="@id/tvlevel"
         app:layout_constraintBottom_toTopOf="@id/PetLifeBar"
 
         />
@@ -108,6 +92,27 @@
         app:layout_constraintBottom_toBottomOf="@id/YourPet"
         app:layout_constraintHorizontal_bias="1.0"/>
 
+    <ProgressBar
+
+        android:id="@+id/PetExpBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="150dp"
+        android:layout_height="5dp"
+        android:progressTint="@color/purple_500"
+        android:layout_marginLeft="30dp"
+
+        android:layout_marginRight="5dp"
+
+
+        android:progress="50"
+
+
+        app:layout_constraintLeft_toLeftOf="@id/PetLifeBar"
+        app:layout_constraintRight_toRightOf="@id/PetLifeBar"
+        app:layout_constraintTop_toBottomOf="@id/PetLifeBar"
+
+        />
+
     <TextView
         android:id="@+id/lifePoints"
         android:layout_width="wrap_content"
@@ -117,9 +122,9 @@
         android:textColor="@color/white"
 
 
-        app:layout_constraintRight_toLeftOf="@id/PetLifeBar"
-        app:layout_constraintLeft_toRightOf="@id/PetLifeBar"
-        app:layout_constraintTop_toBottomOf="@id/PetLifeBar"
+        app:layout_constraintRight_toLeftOf="@id/PetExpBar"
+        app:layout_constraintLeft_toRightOf="@id/PetExpBar"
+        app:layout_constraintTop_toBottomOf="@id/PetExpBar"
 
         />
     <TextView

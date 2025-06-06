@@ -11,6 +11,8 @@ class PetModel(
     var DEFESA: Int = 0,
     var SEDE: Int = 0,
     var FOME: Int = 0,
+    var NIVEL_PET: Int = 0,
+    var EXPERIENCIA_PET: Int = 0
 
     ) {
 

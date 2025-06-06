@@ -55,10 +55,10 @@ class DashboardFragment : Fragment(), View.OnClickListener {
 
         })
 
-
         dashboardViewModel.petLifeBarVillainMax.observe(viewLifecycleOwner, Observer {
             binding.PetLifeBarvillain.max = it
         })
+
 
         dashboardViewModel.inimigo.value!!.vida.observe(viewLifecycleOwner, Observer {
 
@@ -97,6 +97,14 @@ class DashboardFragment : Fragment(), View.OnClickListener {
 
         dashboardViewModel.MaxLifePoint.observe(viewLifecycleOwner, Observer{
             binding.lifePointsMax.text = it
+        })
+
+        dashboardViewModel.petMutable.value!!.NIVEL_PET.observe(viewLifecycleOwner, Observer{
+            binding.tvlevelNumber.text = it.toString()
+        })
+
+        dashboardViewModel.PetExpBar.observe(viewLifecycleOwner, Observer{
+            binding.PetExpBar.progress = it
         })
 
         //-------------------------------
@@ -289,7 +297,7 @@ class DashboardFragment : Fragment(), View.OnClickListener {
         dashboardViewModel.reduceLifePointsPet(damage)
         //dashboardViewModel.inimigo.value!!.vida = dashboardViewModel.inimigo.value!!.vida - (dashboardViewModel.pet.value!!.ATAQUE + dashboardViewModel.bag.value!!.ataque)
         //binding.PetLifeBar.progress = dashboardViewModel.petMutable.value!!.VIDA.value!!
-        dashboardViewModel.textLayoutMessage.value = true
+        //dashboardViewModel.textLayoutMessage.value = dashboardViewModel.ableAndDisableMassageLayout()
 
     }
 
@@ -306,7 +314,7 @@ class DashboardFragment : Fragment(), View.OnClickListener {
         dashboardViewModel.reduceLifePointVillain(damage)
         //dashboardViewModel.inimigo.value!!.vida = dashboardViewModel.inimigo.value!!.vida - (dashboardViewModel.pet.value!!.ATAQUE + dashboardViewModel.bag.value!!.ataque)
         //binding.PetLifeBarvillain.progress = dashboardViewModel.inimigo.value!!.vida.value!!
-        dashboardViewModel.textLayoutMessage.value = true
+        //dashboardViewModel.textLayoutMessage.value = true
 
     }
 

@@ -61,6 +61,13 @@ class HomeFragmentRepository  private constructor(context: Context) {
     fun deletePetItem(pet_Item: PET_ITENS): Boolean {
         return petItensDataBaseRoom.delete(pet_Item) > 0
     }
+    fun updatePetExperience(userID: Int, exp: Int): Boolean {
+
+        return loginDataBaseRoom2.updatePetExperience(userID, exp) > 0
+    }
+    fun lvlUp(userID: Int, lvl: Int): Boolean{
+        return loginDataBaseRoom2.lvlUp(userID, lvl) > 0
+    }
 
 
 //    @SuppressLint("Range")

@@ -36,8 +36,10 @@ interface petDAO {
     @Query("UPDATE PET SET FOME = :fome WHERE PET.ID_USER = :id_user ")
     fun updatePetHungry(id_user: Int, fome: Int): Int
 
+    @Query("UPDATE PET SET EXPERIENCIA_PET = :exp WHERE PET.ID_USER = :id_user ")
+    fun updatePetExperience(id_user: Int, exp: Int): Int
 
-
-
+    @Query("UPDATE PET SET NIVEL_PET = :lvl WHERE PET.ID_USER = :id_user ")
+    fun lvlUp(id_user: Int, lvl: Int): Int
 
 }

@@ -16,7 +16,9 @@ var SEDE: MutableLiveData<Int>,
 var FOME: MutableLiveData<Int>,
 var PET_HOUR: String,
 var QTD_COCO: Int,
-var BIT_MONSTER_COIN: Int
+var BIT_MONSTER_COIN: Int,
+var EXPERIENCIA_PET: MutableLiveData<Int>,
+var NIVEL_PET: MutableLiveData<Int>
 
     ){
 

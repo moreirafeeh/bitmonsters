@@ -38,7 +38,7 @@ class DashboardViewModel(application: Application): AndroidViewModel(application
     var dropItens = ArrayList<PetItens>(listItens)
 
     //---------------------------
-    var inimigo = MutableLiveData(Monstros("Succubus", MutableLiveData(1000),MutableLiveData(30), MutableLiveData(R.drawable.monster1)))
+    var inimigo = MutableLiveData(Monstros("Succubus", MutableLiveData(1000),MutableLiveData(30), MutableLiveData(R.drawable.monster1), 40))
 
     var bag =  MutableLiveData(EquipedItem(0,"",0, 0, ""))
 
@@ -67,7 +67,8 @@ class DashboardViewModel(application: Application): AndroidViewModel(application
 
     var textLayoutMessage = MutableLiveData<Boolean>(false)
 
-    var petMutable =  MutableLiveData<Pet>(Pet(0, 0 , "", "", MutableLiveData(100), MutableLiveData(100), MutableLiveData(100), MutableLiveData(100), MutableLiveData(100), "", 0 ,0))
+    //controlo os atributos do pet por aqui e nao na classe principal
+    var petMutable =  MutableLiveData<Pet>(Pet(0, 0 , "", "", MutableLiveData(100), MutableLiveData(100), MutableLiveData(100), MutableLiveData(100), MutableLiveData(100), "", 0 ,0, MutableLiveData(0), MutableLiveData(0)))
 
     //--------------------------------PET----
     //Controle dos pontos do pet
@@ -78,6 +79,9 @@ class DashboardViewModel(application: Application): AndroidViewModel(application
 
     //Controle de PONTOS maximos do pet
     var MaxLifePoint = MutableLiveData<String>()
+
+    //Controle de barra de experiencias
+    var PetExpBar = MutableLiveData<Int>()
 
 
     private val _text = MutableLiveData<String>().apply { value = "This is dashboard Fragment" }
@@ -107,6 +111,29 @@ class DashboardViewModel(application: Application): AndroidViewModel(application
 
         var petItemEntity: PET_ITENS =  convertToPetItem(dropItens.get(index))
         repository.insert(petItemEntity)
+
+    }
+    fun updatePetExperience(userID: Int, exp: Int){
+        var evolveExp = petMutable.value!!.EXPERIENCIA_PET.value!!.plus(exp)
+        if(evolveExp >= 100){
+            lvlUp(userID)
+            repository.updatePetExperience(userID, 0)
+            settLifePoint()
+            //petMutable.value!!.EXPERIENCIA_PET.value = 0
+        }
+        else{
+            repository.updatePetExperience(userID, evolveExp)
+            settLifePoint()
+        }
+
+
+    }
+
+    private fun lvlUp(userID: Int){
+
+        var lvlUp = pet.value!!.NIVEL_PET + 1
+
+        repository.lvlUp(userID, lvlUp)
 
     }
 
@@ -171,12 +198,19 @@ class DashboardViewModel(application: Application): AndroidViewModel(application
         petMutable.value!!.PET_HOUR = pet.value!!.PET_HOUR
         petMutable.value!!.QTD_COCO = pet.value!!.QTD_COCO
         petMutable.value!!.BIT_MONSTER_COIN = pet.value!!.BIT_MONSTER_COIN
+        petMutable.value!!.NIVEL_PET.value = pet.value!!.NIVEL_PET
+        petMutable.value!!.EXPERIENCIA_PET.value = pet.value!!.EXPERIENCIA_PET
+        petMutable.value!!.NIVEL_PET.value = pet.value!!.NIVEL_PET
 
 
         MaxLifePoint.value = "/" + pet.value!!.VIDA.toString()
         PetLifeBarMaxObserver.value = petMutable.value!!.VIDA.value!!
+        PetExpBar.value = petMutable.value!!.EXPERIENCIA_PET.value!!
 
     }
+
+
+
 
     fun settVillainLifePoint(){
 
@@ -193,7 +227,7 @@ class DashboardViewModel(application: Application): AndroidViewModel(application
 
         val  scope = CoroutineScope(Dispatchers.Default)
         var scopStop = 0
-            scope.launch {
+        scope.launch {
                 var controlerDamage = 0
                 var vida = inimigo.value!!.vida.value!!
                 while(controlerDamage < dano){
@@ -209,11 +243,13 @@ class DashboardViewModel(application: Application): AndroidViewModel(application
                     controlerDamage++
                     delay(10)
                 }
+            textLayoutMessage.postValue(true)
 
-            }
+        }
 
 
     }
+
 
     fun reduceLifePointsPet(dano: Int){
 
@@ -230,6 +266,7 @@ class DashboardViewModel(application: Application): AndroidViewModel(application
                 controlerDamage++
                 delay(10)
             }
+            textLayoutMessage.postValue(true)
 
         }
 
@@ -238,15 +275,21 @@ class DashboardViewModel(application: Application): AndroidViewModel(application
     fun change_monster(){
 
         var monstros: MutableList<Monstros> = mutableListOf(
-            Monstros("Succubus", MutableLiveData(1000),MutableLiveData(100), MutableLiveData(R.drawable.monster1)),
-            Monstros("Succubus", MutableLiveData(1000),MutableLiveData(100), MutableLiveData(R.drawable.monster2)),
-            Monstros("Succubus", MutableLiveData(5000),MutableLiveData(100), MutableLiveData(R.drawable.monster3)),
-            Monstros("Succubus", MutableLiveData(3000),MutableLiveData(100), MutableLiveData(R.drawable.monster4)),
-            Monstros("Succubus", MutableLiveData(8000),MutableLiveData(100), MutableLiveData(R.drawable.monster5)),
-            Monstros("Succubus", MutableLiveData(10000),MutableLiveData(100), MutableLiveData(R.drawable.monster6))
+            Monstros("Succubus", MutableLiveData(1000),MutableLiveData(100), MutableLiveData(R.drawable.monster1), 30),
+            Monstros("Succubus", MutableLiveData(1000),MutableLiveData(100), MutableLiveData(R.drawable.monster2), 20),
+            Monstros("Succubus", MutableLiveData(5000),MutableLiveData(100), MutableLiveData(R.drawable.monster3), 60),
+            Monstros("Succubus", MutableLiveData(3000),MutableLiveData(100), MutableLiveData(R.drawable.monster4), 40),
+            Monstros("Succubus", MutableLiveData(8000),MutableLiveData(100), MutableLiveData(R.drawable.monster5), 35),
+            Monstros("Succubus", MutableLiveData(10000),MutableLiveData(100), MutableLiveData(R.drawable.monster6), 10)
         )
 
         if(inimigo.value!!.vida.value!! <= 0){
+
+            //Atualiza experiencia do PET
+            updatePetExperience(pet.value!!.ID_PET, 20)
+            getinfoPet(pet.value!!.ID_USER.toString())
+            settLifePoint()
+            //---------------------------
             monstros.shuffle()
             inimigo.value!!.nome = monstros[0].nome
             inimigo.value!!.vida.value = monstros[0].vida.value!!

@@ -46,4 +46,11 @@ class PET(
 
     @ColumnInfo(name = "BIT_MONSTER_COIN")
     var BIT_MONSTER_COIN: Int = 0
+
+    @ColumnInfo(name = "NIVEL_PET")
+    var NIVEL_PET: Int = 0
+
+    @ColumnInfo(name = "EXPERIENCIA_PET")
+    var EXPERIENCIA_PET: Int = 0
+
 }

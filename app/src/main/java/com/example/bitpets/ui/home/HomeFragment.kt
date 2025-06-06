@@ -23,6 +23,14 @@ import com.example.bitpets.models.PetModel
 import com.google.gson.Gson
 import java.lang.NullPointerException
 import android.app.Activity
+import android.content.ClipData
+import android.content.ClipDescription
+import android.graphics.PorterDuff
+import android.view.DragEvent
+import android.view.View.DragShadowBuilder
+import android.widget.LinearLayout
+
+import androidx.core.graphics.red
 import com.example.bitpets.room.entities.PET
 import com.example.bitpets.room.entities.PET_ITENS
 
@@ -32,7 +40,9 @@ import java.lang.Exception
 import kotlin.time.Duration
 
 
-class HomeFragment : Fragment(), Runnable, View.OnClickListener {
+
+
+class HomeFragment : Fragment(), Runnable, View.OnClickListener, View.OnDragListener, View.OnLongClickListener {
 
     private val handler: Handler = Handler()
     private var QTD_POOP: Int = 0
@@ -68,6 +78,11 @@ class HomeFragment : Fragment(), Runnable, View.OnClickListener {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         //homeViewModel.text.observe(viewLifecycleOwner, Observer { textView.text = it })
+
+
+
+
+
 
         //TESTANDO MONITORAMENTO DE IMAGEVIEW
         homeViewModel.gifMutable.observe(viewLifecycleOwner, Observer {
@@ -131,6 +146,9 @@ class HomeFragment : Fragment(), Runnable, View.OnClickListener {
         binding.itembox8.setOnClickListener(this)
         binding.itembox9.setOnClickListener(this)
 
+        binding.itembox1.setOnLongClickListener(this)
+        binding.imgPetBag.setOnDragListener(this)
+
 
         return root
     }
@@ -166,6 +184,8 @@ class HomeFragment : Fragment(), Runnable, View.OnClickListener {
             binding.poring.setImageResource(R.drawable.succubus)
         }
     }
+
+
 
 
     override fun run() {
@@ -344,8 +364,8 @@ class HomeFragment : Fragment(), Runnable, View.OnClickListener {
 
         }
 
-
     }
+
 
     fun updateBag(){
 
@@ -399,7 +419,77 @@ class HomeFragment : Fragment(), Runnable, View.OnClickListener {
 
     }
 
+    override fun onDrag(v: View?, event: DragEvent?): Boolean {
 
+        var action = event?.action
+
+        when(action){
+            DragEvent.ACTION_DRAG_STARTED -> if(event?.clipDescription?.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN) == true){  return true } else { return false}
+
+            DragEvent.ACTION_DRAG_ENTERED -> { v?.background?.setColorFilter(R.color.red.red, PorterDuff.Mode.SRC_IN) ;
+                                               v?.invalidate();
+                                               return true}
+
+            DragEvent.ACTION_DRAG_LOCATION -> return true
+
+            DragEvent.ACTION_DRAG_EXITED ->  {v?.background?.clearColorFilter()
+                                              v?.invalidate()
+                                              return true
+                                            }
+
+            DragEvent.ACTION_DROP -> {
+                var item: ClipData.Item? = event?.clipData?.getItemAt(0)
+
+                //var dragData: String = item?.text.toString()
+
+                Toast.makeText(context, "Draagged data is" + item.toString(), Toast.LENGTH_SHORT).show()
+
+                homeViewModel.useItem(SecurityPreferences(requireActivity()).getPetInfo("USER_ID"), 0)
+                updateBag()
+
+                //var vw: View = event?.localState as View
+                //var owner : ViewGroup = vw.parent as ViewGroup
+
+                //owner.removeView(vw)
+
+                //var container : LinearLayout = v as LinearLayout
+
+                //container.addView(vw)
+
+                //vw.visibility = View.VISIBLE
+
+                return true
+
+
+            }
+
+            DragEvent.ACTION_DRAG_ENDED -> {
+                v?.background?.clearColorFilter()
+                v?.invalidate()
+                if(event!!.result){
+                    Toast.makeText(context, "SOLTAR FUNCIONOU", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    Toast.makeText(context, "SOLTAR FALHOU", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+        }
+
+        return false
+    }
+
+    override fun onLongClick(v: View?): Boolean {
+        var item: ClipData.Item = ClipData.Item( v?.getTag().toString() )
+        var mimeTypes: Array<String> = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
+        var data = ClipData(v?.getTag().toString(), mimeTypes, item)
+
+        var dragshadow: DragShadowBuilder =  DragShadowBuilder(v)
+
+        v?.startDrag(data, dragshadow, v, 0)
+
+        return true
+    }
 
 
 }

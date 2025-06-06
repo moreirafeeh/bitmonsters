@@ -7,7 +7,8 @@ class Monstros(
     var nome: String,
     var vida: MutableLiveData<Int>,
     var ataque: MutableLiveData<Int>,
-    var image: MutableLiveData<Int>
+    var image: MutableLiveData<Int>,
+    var exp_win: Int
 
     ){
 
